@@ -18,6 +18,7 @@ package com.example.android.camera2.basic
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 
@@ -29,6 +30,9 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         container = findViewById(R.id.fragment_container)
+        val winParams: WindowManager.LayoutParams = window.getAttributes()
+        winParams.rotationAnimation = WindowManager.LayoutParams.ROTATION_ANIMATION_SEAMLESS
+        window.setAttributes(winParams)
     }
 
     override fun onResume() {
